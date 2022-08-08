@@ -5,8 +5,8 @@ iso_url           = "http://cloud-images.ubuntu.com/releases/focal/release/ubunt
 iso_checksum      = "http://cloud-images.ubuntu.com/releases/focal/release/SHA256SUMS"
 iso_checksum_type = "file"
 
-cpus      = "2"
-memory    = "2048"
+cpus      = "6"
+memory    = "8092"
 disk_size = "128000"
 
 boot_wait           = "1m"

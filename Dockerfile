@@ -1,5 +1,6 @@
 FROM hashicorp/packer:light
 
+ENV PACKER_STAGE="template.*"
 ENV PACKER_LOG=1
 ENV PACKER_LOG_FILE=/var/log/packer.log
 ENV CHECKPOINT_DISABLE=1
@@ -23,4 +24,4 @@ RUN apk add --no-cache --update \
 WORKDIR /app
 
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["packer build -force -var-file vars/docker.hcl template-image.pkr.hcl"]
+CMD ["packer build -force -var-file vars/docker.hcl -only=${PACKER_STAGE} template-image.pkr.hcl"]
