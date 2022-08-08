@@ -11,13 +11,8 @@ Note that, we cannot use any Qemu acceleration when running in containers.
 Make sure you have installed Qemu on your OS and run the following command.
 
 ```sh
-packer build -force -var-file vars/linux.hcl template-image.pkr.hcl
-```
-
-## Running on MacOS
-
-```sh
-packer build -force -var-file vars/macos.hcl template-image.pkr.hcl
+packer build -force -var-file vars/linux.hcl -only="template.*" template-image.pkr.hcl # Base ISO build
+packer build -force -var-file vars/linux.hcl -only="final.*" template-image.pkr.hcl # Provisioner build
 ```
 
 ## Running in Container
